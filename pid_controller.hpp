@@ -23,7 +23,7 @@ struct pid_controller
    double integrate  = 0; /* Integral value, multiplied with ki when setting new output. */
    double derivate   = 0; /* Delta value, multiplied with kd when setting new output. */
    double last_error = 0; /* Last measured error. */
-   double output_min = 0; /* Minimum output value. */;
+   double output_min = 0; /* Minimum output value. */
    double output_max = 0; /* Maximum output value. */
 
    /********************************************************************************

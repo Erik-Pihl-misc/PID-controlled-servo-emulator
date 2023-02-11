@@ -1,5 +1,5 @@
 /********************************************************************************
-* servo.hpp: Includes drives for PID controlled servos with TOF (Time Of Flight)
+* servo.hpp: Includes drivers for PID controlled servos with TOF (Time Of Flight)
 *            sensors to read the relative angle, followed by regulating the
 *            servo angle towards the target.
 ********************************************************************************/
@@ -27,7 +27,7 @@ struct servo
    * servo: Initiates servo with specified parameters. As default, the target
    *        angle is set to 90 degrees (center), with a range of 0 - 180 degrees,
    *        where 0 means all the way to the left and 180 means all the way to
-   *        the right. The TOF sensor boundry values is set to 0 as minimum and
+   *        the right. The TOF sensor boundary values are set to 0 as minimum and
    *        1023 as maximum. Finally the PID parameters are set to default values
    *        suitable for most applications.
    *        
@@ -57,7 +57,7 @@ struct servo
    * init: Initiates servo with specified parameters. As default, the target
    *       angle is set to 90 degrees (center), with a range of 0 - 180 degrees,
    *       where 0 means all the way to the left and 180 means all the way to
-   *       the right. The TOF sensor boundry values is set to 0 as minimum and
+   *       the right. The TOF sensor boundary values are set to 0 as minimum and
    *       1023 as maximum. Finally the PID parameters are set to default values
    *       suitable for most applications.
    *
@@ -130,7 +130,7 @@ struct servo
    ********************************************************************************/
    double input_mapped(void) const
    {
-      return input_ratio() * (pid.target * 2);
+      return input_ratio() * (target() * 2);
    }
 
    /********************************************************************************
@@ -158,9 +158,9 @@ struct servo
    }
 
    /********************************************************************************
-   * print: Prints target value, input, output and last measured error for servo,
-   *        along with servo angle relative to the target. The output is printed
-   *        in the terminal with one decimal as default.
+   * print: Prints target value, input and output for servo, along with servo angle 
+   *        relative to the target. The output is printed in the terminal with 
+   *        one decimal as default.
    *
    *        - ostream     : Reference to output stream used (default = std::cout).
    *        - num_decimals: Number of printed decimals per parameter (default = 1).
@@ -173,7 +173,7 @@ struct servo
       ostream << "Target servo angle:\t\t" << target() << "\n";
       ostream << "Mapped input value:\t\t" << input_mapped() << "\n";
       ostream << "Current servo angle:\t\t" << output() << "\n\n";
-      print_relative_angle();
+      print_relative_angle(ostream, num_decimals);
       ostream << "--------------------------------------------------------------------------------\n\n";
       return;
    }

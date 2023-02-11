@@ -1,5 +1,6 @@
 /********************************************************************************
-* input: Contains miscellaneous input functions to read data from the terminal.
+* input.hpp: Contains miscellaneous input functions to read data such as strings, 
+*            integers and floating point numbers from the terminal.
 ********************************************************************************/
 #ifndef INPUT_HPP_
 #define INPUT_HPP_

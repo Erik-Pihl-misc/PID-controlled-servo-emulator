@@ -1,7 +1,8 @@
 /********************************************************************************
-* tof_sensor.hpp: Include drivers for TOF (Time Of Flight) sensors, where the
-*                 input values are entered from the terminal. As default, the
-*                 min and max sensor values are set to 0 and 1023 respectively.
+* tof_sensor.hpp: Include drivers for TOF (Time Of Flight) sensors with 
+*                 adjustable min and max values.  The sensor values is entered 
+*                 via the terminal. As default, the min and max sensor values 
+*                 are set to 0 and 1023 respectively.
 ********************************************************************************/
 #ifndef TOF_SENSOR_HPP_
 #define TOF_SENSOR_HPP_
@@ -69,7 +70,7 @@ struct tof_sensor
    }
 
    /********************************************************************************
-   * check_sensor_value: Checks if the specified sensor value is within set minumum
+   * check_sensor_value: Checks if the specified sensor value is within set minimum
    *                     and maximum. If the sensor value is out of this range, 
    *                     the value is set to nearest boundary. 
    ********************************************************************************/
@@ -87,9 +88,9 @@ struct tof_sensor
    }
 
    /********************************************************************************
-    * input_range: Returns the range of the input values, i.e. the difference
-    *              between specified max and min values.
-    ********************************************************************************/
+   * input_range: Returns the range of the input values, i.e. the difference
+   *              between specified max and min values.
+   ********************************************************************************/
    double input_range(void) const
    {
       return max - min;
